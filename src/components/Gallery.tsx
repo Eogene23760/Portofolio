@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import Placeholder from "./Placeholder";
 import { photos } from "@/data/site";
 
 export default function Gallery({ limit }: { limit?: number }) {
@@ -35,22 +35,24 @@ export default function Gallery({ limit }: { limit?: number }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="columns-2 gap-3 sm:columns-3 lg:columns-4 [&>button]:mb-3">
         {items.map((photo, i) => (
           <button
             key={photo.id}
             type="button"
             onClick={() => setActive(i)}
-            className="group relative overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
+            className="group relative block w-full overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50"
             aria-label={`Open photo: ${photo.caption}`}
           >
-            <Placeholder
-              label={photo.category}
-              color={photo.color}
-              ratio="square"
-              className="transition-transform duration-500 group-hover:scale-105"
+            <Image
+              src={photo.src}
+              alt={photo.caption}
+              width={photo.orientation === "portrait" ? 800 : 1200}
+              height={photo.orientation === "portrait" ? 1200 : 800}
+              className="h-auto w-full transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
-            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-left text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-left text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
               {photo.caption}
             </span>
           </button>
@@ -69,7 +71,7 @@ export default function Gallery({ limit }: { limit?: number }) {
           <button
             type="button"
             onClick={close}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
             aria-label="Close"
           >
             ✕
@@ -80,20 +82,22 @@ export default function Gallery({ limit }: { limit?: number }) {
               e.stopPropagation();
               prev();
             }}
-            className="absolute left-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-xl text-white hover:bg-white/20"
+            className="absolute left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-xl text-white hover:bg-white/20"
             aria-label="Previous photo"
           >
             ‹
           </button>
           <figure
-            className="max-h-[85vh] w-full max-w-3xl"
+            className="flex max-h-[85vh] w-full max-w-4xl flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <Placeholder
-              label={items[active].caption}
-              color={items[active].color}
-              ratio="video"
-              className="rounded-2xl"
+            <Image
+              src={items[active].src}
+              alt={items[active].caption}
+              width={1600}
+              height={1067}
+              className="max-h-[78vh] w-auto rounded-2xl object-contain"
+              sizes="100vw"
             />
             <figcaption className="mt-3 text-center text-sm text-white/70">
               {items[active].caption} · {items[active].category}
@@ -105,7 +109,7 @@ export default function Gallery({ limit }: { limit?: number }) {
               e.stopPropagation();
               next();
             }}
-            className="absolute right-4 bottom-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-xl text-white hover:bg-white/20 sm:bottom-auto"
+            className="absolute right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-xl text-white hover:bg-white/20"
             aria-label="Next photo"
           >
             ›

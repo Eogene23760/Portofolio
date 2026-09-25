@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site, about } from "@/data/site";
+import Image from "next/image";
+import { site, about, profilePhoto } from "@/data/site";
 import Gallery from "@/components/Gallery";
-import Placeholder from "@/components/Placeholder";
 
 export const metadata: Metadata = {
   title: "About",
@@ -16,11 +16,13 @@ export default function AboutPage() {
 
       <div className="mt-10 grid gap-10 sm:grid-cols-[200px_1fr] sm:items-start">
         <div className="mx-auto w-40 sm:mx-0 sm:w-full">
-          <Placeholder
-            label="Photo"
-            color="#334155"
-            ratio="portrait"
-            className="rounded-2xl"
+          <Image
+            src={profilePhoto}
+            alt={`Portrait of ${site.name}`}
+            width={400}
+            height={533}
+            className="aspect-[3/4] w-full rounded-2xl object-cover"
+            priority
           />
         </div>
 

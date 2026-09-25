@@ -127,19 +127,24 @@ export const projects: Project[] = [
 
 export type Photo = {
   id: string;
-  category: "Street" | "Sports" | "Automotive";
+  src: string;
+  category: "Street" | "Automotive" | "Portrait" | "Culture";
   caption: string;
-  // Warna latar untuk placeholder SVG (diganti dengan foto asli nanti).
-  color: string;
+  orientation: "landscape" | "portrait";
 };
 
 export const photos: Photo[] = [
-  { id: "photo-1", category: "Street", caption: "City corner at dusk", color: "#3f3f46" },
-  { id: "photo-2", category: "Automotive", caption: "Parked classic", color: "#1f2937" },
-  { id: "photo-3", category: "Sports", caption: "Mid-action", color: "#374151" },
-  { id: "photo-4", category: "Street", caption: "Crossing lights", color: "#44403c" },
-  { id: "photo-5", category: "Automotive", caption: "Detail & chrome", color: "#292524" },
-  { id: "photo-6", category: "Sports", caption: "The finish line", color: "#334155" },
-  { id: "photo-7", category: "Street", caption: "Quiet alley", color: "#3f3f46" },
-  { id: "photo-8", category: "Automotive", caption: "Night drive", color: "#111827" },
+  { id: "photo-1", src: "/1.jpg", category: "Automotive", caption: "Porsche Taycan on the street", orientation: "landscape" },
+  { id: "photo-8", src: "/8.jpg", category: "Automotive", caption: "Mitsubishi Neptune '86", orientation: "portrait" },
+  { id: "photo-4", src: "/4.jpg", category: "Culture", caption: "Barongsai at night — Semarang", orientation: "landscape" },
+  { id: "photo-10", src: "/10.jpg", category: "Portrait", caption: "Afternoon, two friends", orientation: "portrait" },
+  { id: "photo-5", src: "/5.jpg", category: "Street", caption: "Coffee beans, roastery detail", orientation: "landscape" },
+  { id: "photo-6", src: "/6.jpg", category: "Street", caption: "The roasting drum", orientation: "landscape" },
+  { id: "photo-7", src: "/7.jpg", category: "Street", caption: "Iced tea, warm light", orientation: "portrait" },
+  { id: "photo-9", src: "/9.jpg", category: "Street", caption: "Dessert & a good book", orientation: "landscape" },
+  { id: "photo-2", src: "/2.jpg", category: "Automotive", caption: "Yamaha in motion", orientation: "landscape" },
+  { id: "photo-3", src: "/3.jpg", category: "Automotive", caption: "Honda CBR, in action", orientation: "landscape" },
 ];
+
+// Foto profil untuk halaman About
+export const profilePhoto = "/foto about.jpg";
