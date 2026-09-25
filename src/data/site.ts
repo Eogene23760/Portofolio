@@ -135,13 +135,13 @@ export type Photo = {
 
 export const photos: Photo[] = [
   { id: "photo-1", src: "/1.jpg", category: "Automotive", caption: "Porsche Taycan on the street", orientation: "landscape" },
-  { id: "photo-8", src: "/8.jpg", category: "Automotive", caption: "Mitsubishi Neptune '86", orientation: "portrait" },
-  { id: "photo-4", src: "/4.jpg", category: "Culture", caption: "Barongsai at night — Semarang", orientation: "landscape" },
+  { id: "photo-4", src: "/4.jpg", category: "Automotive", caption: "Mitsubishi Neptune '86", orientation: "landscape" },
+  { id: "photo-9", src: "/9.jpg", category: "Culture", caption: "Barongsai at night — Semarang", orientation: "landscape" },
   { id: "photo-10", src: "/10.jpg", category: "Portrait", caption: "Afternoon, two friends", orientation: "portrait" },
-  { id: "photo-5", src: "/5.jpg", category: "Street", caption: "Coffee beans, roastery detail", orientation: "landscape" },
-  { id: "photo-6", src: "/6.jpg", category: "Street", caption: "The roasting drum", orientation: "landscape" },
-  { id: "photo-7", src: "/7.jpg", category: "Street", caption: "Iced tea, warm light", orientation: "portrait" },
-  { id: "photo-9", src: "/9.jpg", category: "Street", caption: "Dessert & a good book", orientation: "landscape" },
+  { id: "photo-6", src: "/6.jpg", category: "Street", caption: "Coffee beans, roastery detail", orientation: "landscape" },
+  { id: "photo-5", src: "/5.jpg", category: "Street", caption: "The roasting drum", orientation: "landscape" },
+  { id: "photo-7", src: "/7.jpg", category: "Street", caption: "Dessert & a good book", orientation: "portrait" },
+  { id: "photo-8", src: "/8.jpg", category: "Street", caption: "Iced tea, warm light", orientation: "portrait" },
   { id: "photo-2", src: "/2.jpg", category: "Automotive", caption: "Yamaha in motion", orientation: "landscape" },
   { id: "photo-3", src: "/3.jpg", category: "Automotive", caption: "Honda CBR, in action", orientation: "landscape" },
 ];
