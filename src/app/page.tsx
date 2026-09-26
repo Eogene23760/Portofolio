@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { site, projects } from "@/data/site";
+import Image from "next/image";
+import { site, projects, about, profilePhoto } from "@/data/site";
 import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
@@ -29,6 +30,33 @@ export default function Home() {
           >
             Let&apos;s work together
           </Link>
+        </div>
+      </section>
+
+      {/* About (ringkas) */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid items-center gap-10 sm:grid-cols-[240px_1fr]">
+          <div className="mx-auto w-48 sm:mx-0 sm:w-full">
+            <Image
+              src={profilePhoto}
+              alt={`Portrait of ${site.name}`}
+              width={400}
+              height={533}
+              className="aspect-[3/4] w-full rounded-2xl object-cover"
+            />
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">About</h2>
+            <p className="mt-4 text-foreground/70">{about.paragraphs[0]}</p>
+            <p className="mt-3 text-foreground/70">{about.paragraphs[1]}</p>
+            <Link
+              href="/about"
+              className="mt-6 inline-block text-sm text-foreground/60 underline-offset-4 hover:text-foreground hover:underline"
+            >
+              More about me →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -62,7 +90,6 @@ export default function Home() {
           All projects →
         </Link>
       </section>
-
     </>
   );
 }
