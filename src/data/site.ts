@@ -83,6 +83,15 @@ export const projects: Project[] = [
     outcome:
       "Produced a prototype for a toilet-finding app with a location map, nearest-toilet search, facility info, a 1–10 cleanliness rating, photos, and navigation. The project deepened my understanding of applying Location-Based Services (LBS) in design and the importance of fast, easy-to-read information in time-sensitive situations.",
     prototypeUrl: "#",
+    cover: "/project1-1.png",
+    images: [
+      { src: "/project1-1.png" },
+      { src: "/project1-2.png" },
+      { src: "/project1-3.png" },
+      { src: "/project1-4.png" },
+      { src: "/project1-5.png" },
+      { src: "/project1-6.png" },
+    ],
   },
   {
     slug: "lokasayur",
@@ -120,6 +129,34 @@ export const projects: Project[] = [
     outcome:
       "Produced a prototype with two user sides — customer and vendor. I learned how to design a location-based marketplace that balances the needs and workflows of two very different user types.",
     prototypeUrl: "#",
+    cover: "/project2-2.png",
+    images: [
+      { src: "/project2-1.png", caption: "Customer app" },
+      { src: "/project2-2.png", caption: "Customer app" },
+      { src: "/project2-3.png", caption: "Customer app" },
+      { src: "/project2-4.png", caption: "Customer app" },
+      { src: "/project2-5.png", caption: "Customer app" },
+      { src: "/project2-6.png", caption: "Customer app" },
+      { src: "/project2-7.png", caption: "Customer app" },
+      { src: "/project2-8.png", caption: "Customer app" },
+      { src: "/project2-9.png", caption: "Customer app" },
+      { src: "/project2-10.png", caption: "Customer app" },
+      { src: "/project2-11.png", caption: "Customer app" },
+      { src: "/project2-12.png", caption: "Customer app" },
+      { src: "/project2V-1.png", caption: "Vendor app" },
+      { src: "/project2v-2.png", caption: "Vendor app" },
+      { src: "/project2v-3.png", caption: "Vendor app" },
+      { src: "/project2v-4.png", caption: "Vendor app" },
+      { src: "/project2v-5.png", caption: "Vendor app" },
+      { src: "/project2v-6.png", caption: "Vendor app" },
+      { src: "/project2v-7.png", caption: "Vendor app" },
+      { src: "/project2v-8.png", caption: "Vendor app" },
+      { src: "/project2v-9.png", caption: "Vendor app" },
+      { src: "/project2v-10.png", caption: "Vendor app" },
+      { src: "/project2v-11.png", caption: "Vendor app" },
+      { src: "/project2v-12.png", caption: "Vendor app" },
+      { src: "/project2v-13.png", caption: "Vendor app" },
+    ],
   },
   {
     slug: "floodguard",
@@ -169,6 +206,12 @@ export const projects: Project[] = [
     outcome:
       "Produced a flood-risk prediction prototype using XGBoost with parameters such as rainfall, water level, wind speed and direction, humidity, day, and hour. The project helped me understand the end-to-end machine-learning process — from data preprocessing to model evaluation and visualizing prediction results.",
     prototypeUrl: "#",
+    cover: "/project3-1.png",
+    images: [
+      { src: "/project3-1.png" },
+      { src: "/project3-2.png" },
+      { src: "/project3-3.png" },
+    ],
   },
 ];
 
