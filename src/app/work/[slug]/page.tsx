@@ -63,14 +63,16 @@ export default async function CaseStudyPage({
 
       {/* Cover */}
       {project.cover ? (
-        <Image
-          src={project.cover}
-          alt={project.title}
-          width={1600}
-          height={700}
-          priority
-          className="mt-8 w-full rounded-2xl object-cover"
-        />
+        <div className="mt-8 flex items-center justify-center overflow-hidden rounded-2xl border border-black/5 bg-foreground/[0.03] p-6 sm:p-10 dark:border-white/10">
+          <Image
+            src={project.cover}
+            alt={project.title}
+            width={440}
+            height={956}
+            priority
+            className="max-h-[70vh] w-auto rounded-xl object-contain shadow-sm"
+          />
+        </div>
       ) : (
         <Placeholder
           label={project.title}
@@ -155,24 +157,41 @@ export default async function CaseStudyPage({
       {project.images && project.images.length > 0 && (
         <section className="mt-12">
           <h2 className="text-xl font-semibold tracking-tight">Design</h2>
-          <div className="mt-4 space-y-6">
-            {project.images.map((img, i) => (
-              <figure key={img.src}>
-                <Image
-                  src={img.src}
-                  alt={img.caption ?? `${project.title} design ${i + 1}`}
-                  width={1600}
-                  height={1000}
-                  className="w-full rounded-2xl border border-black/5 object-cover dark:border-white/10"
-                />
-                {img.caption && (
-                  <figcaption className="mt-2 text-center text-sm text-foreground/50">
-                    {img.caption}
-                  </figcaption>
+          {(() => {
+            // Kelompokkan gambar berdasarkan caption (mis. Customer/Vendor app).
+            const groups = new Map<string, typeof project.images>();
+            for (const img of project.images!) {
+              const key = img.caption ?? "";
+              if (!groups.has(key)) groups.set(key, []);
+              groups.get(key)!.push(img);
+            }
+            return [...groups.entries()].map(([caption, imgs]) => (
+              <div key={caption || "default"} className="mt-6">
+                {caption && (
+                  <h3 className="mb-3 text-sm font-medium text-foreground/60">
+                    {caption}
+                  </h3>
                 )}
-              </figure>
-            ))}
-          </div>
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                  {imgs!.map((img, i) => (
+                    <figure
+                      key={img.src}
+                      className="overflow-hidden rounded-2xl border border-black/5 bg-foreground/[0.02] dark:border-white/10"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.caption ?? `${project.title} design ${i + 1}`}
+                        width={440}
+                        height={956}
+                        className="h-auto w-full object-contain"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            ));
+          })()}
         </section>
       )}
 

@@ -17,14 +17,14 @@ export default function ProjectCard({
       href={`/work/${project.slug}`}
       className="group block overflow-hidden rounded-2xl border border-black/5 transition-all hover:-translate-y-1 hover:shadow-lg dark:border-white/10"
     >
-      <div className="aspect-video overflow-hidden">
+      <div className="flex aspect-video items-center justify-center overflow-hidden bg-foreground/[0.03]">
         {project.cover ? (
           <Image
             src={project.cover}
             alt={project.title}
-            width={1200}
-            height={675}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            width={440}
+            height={956}
+            className="h-full w-auto object-contain py-4 transition-transform duration-500 group-hover:scale-[1.03]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
