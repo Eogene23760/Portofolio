@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Placeholder from "./Placeholder";
 import type { Project } from "@/data/site";
 
@@ -16,15 +17,28 @@ export default function ProjectCard({
       href={`/work/${project.slug}`}
       className="group block overflow-hidden rounded-2xl border border-black/5 transition-all hover:-translate-y-1 hover:shadow-lg dark:border-white/10"
     >
-      <Placeholder
-        label={project.title}
-        color={colors[index % colors.length]}
-        ratio="video"
-        className="transition-transform duration-500 group-hover:scale-[1.03]"
-      />
+      <div className="aspect-video overflow-hidden">
+        {project.cover ? (
+          <Image
+            src={project.cover}
+            alt={project.title}
+            width={1200}
+            height={675}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <Placeholder
+            label={project.title}
+            color={colors[index % colors.length]}
+            ratio="video"
+            className="h-full transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        )}
+      </div>
       <div className="p-5">
         <div className="mb-2 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
+          {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
               className="rounded-full bg-foreground/5 px-2.5 py-1 text-xs text-foreground/60"

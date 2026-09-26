@@ -20,6 +20,20 @@ export default function WorkPage() {
         {projects.map((project, i) => (
           <ProjectCard key={project.slug} project={project} index={i} />
         ))}
+
+        {/* Coming soon banner */}
+        <div className="flex min-h-[280px] flex-col items-center justify-center rounded-2xl border border-dashed border-foreground/15 bg-foreground/[0.02] p-6 text-center">
+          <span className="rounded-full border border-foreground/15 px-3 py-1 text-xs font-medium uppercase tracking-wide text-foreground/50">
+            Coming soon
+          </span>
+          <h3 className="mt-4 text-lg font-semibold tracking-tight">
+            Next project in the works
+          </h3>
+          <p className="mt-2 max-w-xs text-sm text-foreground/50">
+            New case studies are on the way. Check back soon or reach out to see
+            what I&apos;m building.
+          </p>
+        </div>
       </div>
     </section>
   );

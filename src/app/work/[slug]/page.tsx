@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/site";
 import Placeholder from "@/components/Placeholder";
@@ -61,12 +62,23 @@ export default async function CaseStudyPage({
       </header>
 
       {/* Cover */}
-      <Placeholder
-        label={project.title}
-        color={colors[index % colors.length]}
-        ratio="wide"
-        className="mt-8 rounded-2xl"
-      />
+      {project.cover ? (
+        <Image
+          src={project.cover}
+          alt={project.title}
+          width={1600}
+          height={700}
+          priority
+          className="mt-8 w-full rounded-2xl object-cover"
+        />
+      ) : (
+        <Placeholder
+          label={project.title}
+          color={colors[index % colors.length]}
+          ratio="wide"
+          className="mt-8 rounded-2xl"
+        />
+      )}
 
       {/* Overview */}
       <dl className="mt-10 grid grid-cols-2 gap-6 rounded-2xl border border-black/5 p-6 sm:grid-cols-4 dark:border-white/10">
@@ -138,6 +150,31 @@ export default async function CaseStudyPage({
           </a>
         )}
       </section>
+
+      {/* Design screenshots */}
+      {project.images && project.images.length > 0 && (
+        <section className="mt-12">
+          <h2 className="text-xl font-semibold tracking-tight">Design</h2>
+          <div className="mt-4 space-y-6">
+            {project.images.map((img, i) => (
+              <figure key={img.src}>
+                <Image
+                  src={img.src}
+                  alt={img.caption ?? `${project.title} design ${i + 1}`}
+                  width={1600}
+                  height={1000}
+                  className="w-full rounded-2xl border border-black/5 object-cover dark:border-white/10"
+                />
+                {img.caption && (
+                  <figcaption className="mt-2 text-center text-sm text-foreground/50">
+                    {img.caption}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Next project */}
       <nav className="mt-16 border-t border-black/5 pt-8 dark:border-white/10">

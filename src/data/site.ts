@@ -39,88 +39,135 @@ export type Project = {
   process: { title: string; description: string }[];
   outcome: string;
   prototypeUrl?: string;
+  // Path gambar cover (thumbnail). Kosong = pakai placeholder sementara.
+  cover?: string;
+  // Screenshot tambahan untuk halaman case study.
+  images?: { src: string; caption?: string }[];
 };
 
 export const projects: Project[] = [
   {
-    slug: "indie-game-ui-revamp",
-    title: "Indie Game UI Revamp",
+    slug: "getol",
+    title: "Getol",
     summary:
-      "Redesigned the in-game menus and HUD of an indie title to improve clarity and player onboarding.",
-    tags: ["Game UI", "Visual Design", "Prototyping"],
+      "A mobile app that helps people find the nearest public toilets based on location, facilities, and cleanliness rating.",
+    tags: [
+      "Mobile App",
+      "UI/UX Design",
+      "Location-Based Service",
+      "Map",
+      "Accessibility",
+    ],
     role: "Product Designer",
-    duration: "6 weeks",
-    tools: ["Figma", "Adobe Illustrator"],
-    client: "Indie Game Studio (concept)",
-    problem:
-      "Players struggled to navigate cluttered menus and often missed key actions during the first session.",
-    goals: [
-      "Simplify the main menu and settings hierarchy",
-      "Make core actions discoverable within the first minute",
-      "Establish a reusable UI style for future updates",
-    ],
-    process: [
-      { title: "Research", description: "Reviewed player feedback and mapped the existing navigation flow." },
-      { title: "Wireframe", description: "Sketched low-fidelity layouts to test hierarchy and grouping." },
-      { title: "Visual Design", description: "Built a clean, high-contrast UI kit aligned with the game's tone." },
-      { title: "Prototype", description: "Created an interactive prototype for playtesting and iteration." },
-    ],
-    outcome:
-      "The revamped UI reduced first-session confusion in playtests and provided a consistent component set for future releases.",
-    prototypeUrl: "#",
-  },
-  {
-    slug: "mobile-fitness-app",
-    title: "Mobile Fitness App",
-    summary:
-      "End-to-end product design for a habit-focused fitness app, from user flows to a scalable design system.",
-    tags: ["Mobile App", "Design System", "UX"],
-    role: "Product Designer & QA",
-    duration: "8 weeks",
-    tools: ["Figma"],
+    duration: "Personal project",
+    tools: ["Figma", "FigJam"],
     client: "Personal project",
     problem:
-      "Users abandon fitness apps quickly because tracking feels tedious and progress is hard to see.",
+      "In public places, people often struggle to find an accessible toilet and have no way to know its condition beforehand. Information about location, facilities, and cleanliness is scattered across different platforms.",
     goals: [
-      "Reduce friction in daily logging",
-      "Visualize progress in a motivating way",
-      "Ship a consistent, testable component library",
+      "Help users quickly find the nearest public toilet",
+      "Surface cleanliness and facility information before they visit",
+      "Let users choose a toilet based on their location and needs",
     ],
     process: [
-      { title: "Research", description: "Explored habit-formation patterns and competitor onboarding flows." },
-      { title: "User Flow", description: "Defined the core loop: log → see progress → get nudged." },
-      { title: "Design System", description: "Created tokens, components, and states for consistency and QA." },
-      { title: "Testing", description: "Ran usability checks and logged issues against acceptance criteria." },
+      { title: "User Research", description: "Explored when and why people need to find a toilet in unfamiliar places." },
+      { title: "User Persona", description: "Defined the core users and their contexts of use." },
+      { title: "Problem Definition", description: "Framed the key pain points into clear design problems." },
+      { title: "User Flow", description: "Mapped the path from opening the app to finding a suitable toilet." },
+      { title: "Wireframe", description: "Sketched low-fidelity layouts focused on speed and clarity." },
+      { title: "UI Design", description: "Designed a clean, readable interface for quick decisions." },
+      { title: "Prototype", description: "Built an interactive prototype for testing the flow." },
+      { title: "Usability Testing", description: "Validated the flow with users and gathered feedback." },
+      { title: "Iteration", description: "Refined the design based on testing insights." },
     ],
     outcome:
-      "Delivered a cohesive design system and a streamlined logging flow that cut the steps to record a workout in half.",
+      "Produced a prototype for a toilet-finding app with a location map, nearest-toilet search, facility info, a 1–10 cleanliness rating, photos, and navigation. The project deepened my understanding of applying Location-Based Services (LBS) in design and the importance of fast, easy-to-read information in time-sensitive situations.",
     prototypeUrl: "#",
   },
   {
-    slug: "analytics-dashboard",
-    title: "Analytics Dashboard",
+    slug: "lokasayur",
+    title: "Lokasayur",
     summary:
-      "A clean, data-dense dashboard designed for clarity, scannability, and reliable QA hand-off.",
-    tags: ["Web", "Dashboard", "Visual Design"],
+      "A mobile app that connects users with roaming vegetable vendors nearby — find vendors, check stock, order, and track delivery.",
+    tags: [
+      "Mobile App",
+      "UI/UX Design",
+      "Location-Based Service",
+      "Marketplace",
+    ],
     role: "Product Designer",
-    duration: "5 weeks",
-    tools: ["Figma", "Adobe Illustrator"],
-    client: "Concept project",
+    duration: "Personal project",
+    tools: ["Figma", "FigJam"],
+    client: "Personal project",
     problem:
-      "Stakeholders needed to read key metrics at a glance, but the existing dashboard buried them in noise.",
+      "Roaming vegetable vendors are hard to find digitally — customers usually rely on neighborhood word-of-mouth or wait for a vendor to pass by. Vendors, in turn, struggle to reach a wider audience and manage orders in an organized way.",
     goals: [
-      "Surface the most important metrics first",
-      "Establish a consistent charting and spacing system",
-      "Make the layout responsive and accessible",
+      "Help users find the nearest vegetable vendors in real time",
+      "Let users view stock and place orders digitally",
+      "Help vendors manage stock, orders, delivery routes, and income",
     ],
     process: [
-      { title: "Research", description: "Interviewed users to rank the metrics they check most often." },
-      { title: "Wireframe", description: "Prioritized content with a clear visual hierarchy." },
-      { title: "Visual Design", description: "Applied a restrained palette and consistent chart styling." },
-      { title: "QA", description: "Documented states and edge cases for a smooth developer hand-off." },
+      { title: "User Research", description: "Studied the habits of both customers and roaming vendors." },
+      { title: "User Persona", description: "Defined personas for the two distinct user types." },
+      { title: "User Flow", description: "Mapped separate flows for customers and vendors." },
+      { title: "Information Architecture", description: "Structured content and features for both sides of the app." },
+      { title: "Wireframe", description: "Sketched layouts for the customer and vendor experiences." },
+      { title: "UI Design", description: "Designed a clear, approachable interface for everyday use." },
+      { title: "Prototype", description: "Built an interactive two-sided prototype." },
+      { title: "Usability Testing", description: "Tested both flows with representative users." },
+      { title: "Iteration", description: "Refined the experience based on feedback." },
     ],
     outcome:
-      "The redesign made primary KPIs immediately visible and set a reusable pattern for future dashboard views.",
+      "Produced a prototype with two user sides — customer and vendor. I learned how to design a location-based marketplace that balances the needs and workflows of two very different user types.",
+    prototypeUrl: "#",
+  },
+  {
+    slug: "floodguard",
+    title: "FloodGuard",
+    summary:
+      "A machine-learning flood prediction and early-warning system that analyzes weather and environmental data to estimate flood risk.",
+    tags: [
+      "Mobile App",
+      "UI/UX Design",
+      "AI / Machine Learning",
+      "Data Science",
+      "Predictive System",
+      "Dashboard",
+      "Early Warning System",
+    ],
+    role: "Product Designer & Data",
+    duration: "Personal project",
+    tools: [
+      "Figma",
+      "FigJam",
+      "Python",
+      "XGBoost",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Jupyter Notebook",
+    ],
+    client: "Personal project",
+    problem:
+      "Floods result from a combination of factors — rainfall, water levels, humidity, and weather conditions. The available information is often raw data that's hard for the public to interpret. A system is needed to turn these parameters into risk information that's easy to understand and useful as an early warning.",
+    goals: [
+      "Build a machine-learning model to predict flood risk from environmental and weather data",
+      "Identify the factors most associated with increased flood risk",
+      "Present predictions as easy-to-understand information to support preparedness",
+    ],
+    process: [
+      { title: "Data Collection", description: "Gathered weather and environmental datasets." },
+      { title: "Data Cleaning", description: "Cleaned and standardized the raw data." },
+      { title: "Exploratory Data Analysis", description: "Explored patterns and relationships in the data." },
+      { title: "Feature Selection", description: "Selected the most relevant predictive features." },
+      { title: "Data Preprocessing", description: "Prepared the data for model training." },
+      { title: "Model Training", description: "Trained an XGBoost model on the prepared data." },
+      { title: "Model Evaluation", description: "Evaluated the model's predictive performance." },
+      { title: "Prediction", description: "Generated flood-risk predictions from the model." },
+      { title: "Visualization", description: "Visualized results into understandable risk information." },
+    ],
+    outcome:
+      "Produced a flood-risk prediction prototype using XGBoost with parameters such as rainfall, water level, wind speed and direction, humidity, day, and hour. The project helped me understand the end-to-end machine-learning process — from data preprocessing to model evaluation and visualizing prediction results.",
     prototypeUrl: "#",
   },
 ];
