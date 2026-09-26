@@ -63,24 +63,6 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="rounded-3xl border border-black/5 p-10 text-center dark:border-white/10">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Have a project in mind?
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-foreground/60">
-            I&apos;m open to product design and QA opportunities. Let&apos;s build
-            something clean and functional together.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-6 inline-block rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-          >
-            Get in touch
-          </Link>
-        </div>
-      </section>
     </>
   );
 }
